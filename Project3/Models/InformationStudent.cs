@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace Project3.Models;
 
 public partial class InformationStudent
@@ -16,6 +14,8 @@ public partial class InformationStudent
     public string? WasBorn { get; set; }
 
     public string? IdentityCard { get; set; }
+
+    public string? Email { get; set; }
 
     public DateTime? StartCard { get; set; }
 
