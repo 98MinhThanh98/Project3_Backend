@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y/5lcF9x/sa+ootPDaQAVRWWCuF1+7WiVMvD7GKX1m/wuE7Z+9QwEsJP+Wvr1w7sUJHjyu64k491cqeB6/KKpw==",
+  "dgSpecHash": "NUZ9C/lFBgd2pzd+bc9Yo6XwRdvgiUP7D8vmNej9SmSE54NiYug64Wd19fE1bpyQ1/mLH9HCvtasNtztqfp9kA==",
   "success": true,
-  "projectFilePath": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3\\Project3\\Project3.csproj",
+  "projectFilePath": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3-fix\\Project3_Backend\\Project3\\Project3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

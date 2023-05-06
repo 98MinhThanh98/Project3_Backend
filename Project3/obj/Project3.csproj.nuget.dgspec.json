@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3\\Project3\\Project3.csproj": {}
+    "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3-fix\\Project3_Backend\\Project3\\Project3.csproj": {}
   },
   "projects": {
-    "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3\\Project3\\Project3.csproj": {
+    "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3-fix\\Project3_Backend\\Project3\\Project3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3\\Project3\\Project3.csproj",
+        "projectUniqueName": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3-fix\\Project3_Backend\\Project3\\Project3.csproj",
         "projectName": "Project3",
-        "projectPath": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3\\Project3\\Project3.csproj",
+        "projectPath": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3-fix\\Project3_Backend\\Project3\\Project3.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3\\Project3\\obj\\",
+        "outputPath": "D:\\FPT_APTECH\\sem3\\C#\\source\\repos\\Project3-fix\\Project3_Backend\\Project3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
