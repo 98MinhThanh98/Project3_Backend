@@ -6,6 +6,7 @@ using Project3.Entity.Request;
 using Project3.Entity.Response;
 using Project3.Migrations;
 using Project3.Models;
+using System.ComponentModel;
 using System.Data;
 using System.Text;
 
@@ -74,13 +75,13 @@ namespace Project3.Repositories
             return new PageResponse<IPagedList<VBlogPagin>>(pageData, (int)filter.pageNumber, (int)filter.pageSize, total,(int) pageTotal);
         }
 
-        public Blog getOne(float id)
+        public Blog getOne(long id)
         {
             var data =  _dbContext.Blogs.Where(r => r.Id == id).First();
 
             return data;
         }
-
+        
         public List<Blog> getBlogList()
         {
             return _dbContext.Blogs.Where(r => r.IsDelete == 0).ToList();       
