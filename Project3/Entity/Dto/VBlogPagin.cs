@@ -2,9 +2,9 @@
 {
     public class VBlogPagin
     {
-        public float? Id { get; set; }
+        public long? Id { get; set; }
         public string? Title { get; set; }
-        public float? CategoryId { get; set; }
+        public long? CategoryId { get; set; }
         public DateTime? CreateAt { get; set; }
 
     }

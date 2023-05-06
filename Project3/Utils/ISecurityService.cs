@@ -11,9 +11,9 @@ namespace Project3.Utils
 {
     public interface ISecurityService
     {
-        Task<string> CreateToken(User user, string role);
-        Task<PasswordDto> CreatePasswordHash(string password);
-        Task<bool> VerifyPasswordHash(string password, byte[] passwordHash, byte[] paswordSalt);
+        string CreateToken(User user, string role);
+        PasswordDto CreatePasswordHash(string password);
+        bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] paswordSalt);
     }
 
     public class SecurityService : ISecurityService
@@ -23,7 +23,7 @@ namespace Project3.Utils
         {
             _configuration = configuration;
         }
-        public async Task<PasswordDto> CreatePasswordHash(string password)
+        public PasswordDto CreatePasswordHash(string password)
         {
             using (var hmac = new HMACSHA512())
             {
@@ -33,7 +33,7 @@ namespace Project3.Utils
             }
         }
 
-        public async Task<string> CreateToken(User user, string role)
+        public string CreateToken(User user, string role)
         {
             string id = user.Id.ToString();
             List<Claim> claims = new List<Claim>
@@ -49,7 +49,7 @@ namespace Project3.Utils
             return jwt;
         }
 
-        public async Task<bool> VerifyPasswordHash(string password, byte[] passwordHash, byte[] paswordSalt)
+        public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] paswordSalt)
         {
             using (var hmac = new HMACSHA512(paswordSalt))
             {

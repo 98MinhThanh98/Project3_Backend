@@ -9,6 +9,18 @@
             public const string OBJECT_NOT_FOUND = "không tìm thấy dữ liệu object này";
 
             public const string OBJECT_NULL = "Object này không có data";
+
+            public const string REGISTER_USERNAME = "Tên Đăng nhập bị trùng";
+
+            public const string ROLE_ADMIN = "ROLE_ADMIN";
+
+            public const string ROLE_USER = "ROLE_USER";
+
+            public const string REGISTER_SUCCESS = "Đăng kí thành công";
+
+            public const string REGISTER_FAIL = "Đăng kí thất bại! Vui lòng thử lại";
+
+            public const string ROLE_NOT_FOUND = "không tìm thấy role này";
         }
 
         public class STATUS_RESPONSE
