@@ -9,7 +9,7 @@ namespace Project3.Repositories
         List<TestFirst> getListTestFirst();
         void addOrUpdateTestFirst(TestFirst testFirst);
         void deleteTestFirst(TestFirst testFirst);
-        TestFirst getOne(float id);
+        TestFirst getOne(long id);
     }
     public class TestFirstRepo : ITestFirstRepo 
     {
@@ -44,7 +44,7 @@ namespace Project3.Repositories
             return _dbContext.TestFirsts.Where(r => r.Id == 0).ToList();
         }
 
-        public TestFirst getOne(float id)
+        public TestFirst getOne(long id)
         {
             var data = _dbContext.TestFirsts.Where(r => r.Id == id).First();
 

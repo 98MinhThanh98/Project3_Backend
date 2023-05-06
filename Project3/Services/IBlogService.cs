@@ -9,9 +9,9 @@ namespace Project3.Services
 {
     public interface IBlogService
     {
-        BaseResponse getOne(float id);
+        BaseResponse getOne(long id);
         BaseResponse getPagin(BlogReq filter);
-        BaseResponse deleteBlog(float id);
+        BaseResponse deleteBlog(long id);
         BaseResponse createOrUpdate(AddBlogReq blogReq);
     }
 
@@ -34,7 +34,7 @@ namespace Project3.Services
             }
             else
             {
-                this.blog = _blogRepo.getOne((float)blogReq.Id);
+                this.blog = _blogRepo.getOne((long)blogReq.Id);
                 if(this.blog == null)
                 {
                     throw new DataNotFoundException(MESSAGE.VALIDATE.OBJECT_NOT_FOUND);
@@ -56,7 +56,7 @@ namespace Project3.Services
             blog.CategoryId = blogs.CategoryId;
         }
 
-        public BaseResponse deleteBlog(float id)
+        public BaseResponse deleteBlog(long id)
         {
             var data = _blogRepo.getOne(id);
             if(data == null)
@@ -70,7 +70,7 @@ namespace Project3.Services
             return new BaseResponse();
         }
 
-        public BaseResponse getOne(float id)
+        public BaseResponse getOne(long id)
         {
             var data = _blogRepo.getOne(id);
             if(data == null)

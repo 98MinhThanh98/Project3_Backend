@@ -10,7 +10,7 @@ namespace Project3.Repositories
         List<Course> GetCourseList();
         void addOrUpdateCourseRepo(Course course);
         void deleteCourseRepo(Course course);
-        Course getOne(float id);
+        Course getOne(long id);
     }
     public class CourseRepo : ICourseRepo
     {
@@ -43,7 +43,7 @@ namespace Project3.Repositories
             return _dbContext.Courses.Where(r => r.Id == 0).ToList();
         }
 
-        public Course getOne(float id)
+        public Course getOne(long id)
         {
             var data = _dbContext.Courses.Where(r => r.Id == id).First();
 

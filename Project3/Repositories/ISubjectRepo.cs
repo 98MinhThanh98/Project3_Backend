@@ -9,7 +9,7 @@ namespace Project3.Repositories
         List<Subject> getSubjectList();
         void CreateOrUpdateSubjectRepo(Subject subject);
         void DeleteSubject(Subject subject);
-        Subject getOne(float id);
+        Subject getOne(long id);
     }
     public class SubjectRepo : ISubjectRepo
     {
@@ -38,7 +38,7 @@ namespace Project3.Repositories
             _dbContext.SaveChanges();
         }
 
-        public Subject getOne(float id)
+        public Subject getOne(long id)
         {
             var data = _dbContext.Subjects.Where(r => r.Id == id).First();
 

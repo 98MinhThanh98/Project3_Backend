@@ -18,7 +18,7 @@ namespace Project3.Repositories
         PageResponse<IPagedList<VBlogPagin>> paginations(BlogReq filter);
         void addOrUpdateBlogs(Blog blog);
         void deleteBlog(Blog blog);
-        Blog getOne(float id);
+        Blog getOne(long id);
     }
 
     public class BlogRepo : IBlogRepo

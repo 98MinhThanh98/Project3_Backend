@@ -8,7 +8,7 @@ namespace Project3.Repositories
         List<InformationStudent> getInformationList();
         void addOrUpdateInformationStudent(InformationStudent informationStudent);
         void deleteInformationStudent(InformationStudent informationStudent);
-        InformationStudent getOne(float id);
+        InformationStudent getOne(long id);
     }
     public class InformationStudentRepo : IInformationStudentRepo
     {
@@ -41,7 +41,7 @@ namespace Project3.Repositories
             _dbContext.SaveChanges();
         }
 
-        public InformationStudent getOne(float id)
+        public InformationStudent getOne(long id)
         {
             var data = _dbContext.InformationStudents.Where(r => r.Id == id).First();
 
