@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Project3.Migrations;
 using Project3.Models;
 using System.Reflection.Metadata;
@@ -48,5 +49,11 @@ namespace Project3.Repositories
 
             return data;
         }
+=======
+﻿namespace Project3.Repositories
+{
+    public interface ICourseRepo
+    {
+>>>>>>> cff46de88ecb6444047ba605511d28812d678132
     }
 }

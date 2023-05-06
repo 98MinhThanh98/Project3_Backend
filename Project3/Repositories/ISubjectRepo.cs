@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Project3.Migrations;
 using Project3.Models;
 
@@ -48,5 +49,11 @@ namespace Project3.Repositories
         {
             return _dbContext.Subjects.Where(r => r.Id == 0).ToList();
         }
+=======
+﻿namespace Project3.Repositories
+{
+    public interface ISubjectRepo
+    {
+>>>>>>> cff46de88ecb6444047ba605511d28812d678132
     }
 }

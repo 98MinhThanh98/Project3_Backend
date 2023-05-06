@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Project3.Migrations;
 using Project3.Models;
 
@@ -49,5 +50,11 @@ namespace Project3.Repositories
 
             return data;
         }
+=======
+﻿namespace Project3.Repositories
+{
+    public interface ITestFirstRepo
+    {
+>>>>>>> cff46de88ecb6444047ba605511d28812d678132
     }
 }
