@@ -13,8 +13,8 @@ namespace Project3.Repositories
 {
     public interface IRoleRepo
     {
-        PageResponse<IPagedList<ListRoleRespon>> paginations(RoleReq roleReq);
-        IEnumerable<ListRoleRespon> getAllRole();
+        PageResponse<IPagedList<VRolePagin>> paginations(RoleReq roleReq);
+        IEnumerable<VRolePagin> getAllRole();
         void SaveRole(Role role);
         Role GetRoleById(long id);
         void UpdateRole(Role role);
@@ -34,14 +34,14 @@ namespace Project3.Repositories
             return _context.Roles.Where(n => n.NameRole == roleName).First();
         }
 
-        public IEnumerable<ListRoleRespon> getAllRole()
+        public IEnumerable<VRolePagin> getAllRole()
         {
             return _context.Roles.Where(r => r.IsDelete == 0).ToList().Select(r => 
-            new ListRoleRespon
+            new VRolePagin
             {
                 Id = r.Id,
-                Name = r.NameRole,
-                CreateAt = r.CreateAt
+                NameRole = r.NameRole,
+                CreatedDate = r.CreateAt
             });
         }
 
@@ -50,7 +50,7 @@ namespace Project3.Repositories
             return _context.Roles.Where(n => n.Id == id).First();
         }
 
-        public PageResponse<IPagedList<ListRoleRespon>> paginations(RoleReq roleReq)
+        public PageResponse<IPagedList<VRolePagin>> paginations(RoleReq roleReq)
         {
             var param = new List<SqlParameter>();
             StringBuilder data = new StringBuilder("select rl.Id,rl.NameRole from Roles as rl\r\nwhere rl.IsDelete = 0 ");
@@ -63,11 +63,11 @@ namespace Project3.Repositories
 
             var query = _context.Set<Role>().FromSqlRaw(data.ToString())
                 .OrderBy(r => r.NameRole).ThenByDescending(r => r.CreateAt)
-                .Select(r => new ListRoleRespon
+                .Select(r => new VRolePagin
                 {
                     Id = r.Id,
-                    Name = r.NameRole,
-                    CreateAt = r.CreateAt
+                    NameRole = r.NameRole,
+                    CreatedDate = r.CreateAt
                 });
 
             var total = query.Count();
@@ -76,7 +76,7 @@ namespace Project3.Repositories
 
             var pageTotal = Math.Round((decimal)total / (int)roleReq.pageSize);
 
-            return new PageResponse<IPagedList<ListRoleRespon>>(pageData, (int) roleReq.pageNumber, (int)roleReq.pageSize, total, (int)pageTotal);
+            return new PageResponse<IPagedList<VRolePagin>>(pageData, (int) roleReq.pageNumber, (int)roleReq.pageSize, total, (int)pageTotal);
         }
 
         public void SaveRole(Role role)
