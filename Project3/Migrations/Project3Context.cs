@@ -44,12 +44,12 @@ public partial class Project3Context : DbContext
     {
         modelBuilder.Entity<Blog>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Blogs__3214EC07893C2F39");
+            entity.HasKey(e => e.Id).HasName("PK__Blogs__3214EC073867579D");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Summay).HasColumnType("text");
-            entity.Property(e => e.Title).HasMaxLength(1);
+            entity.Property(e => e.Title).HasMaxLength(200);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Blogs)
@@ -63,24 +63,23 @@ public partial class Project3Context : DbContext
 
         modelBuilder.Entity<CategoryBlog>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07AA04A19E");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC076EEA7CE6");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.CategoryName).HasMaxLength(1);
+            entity.Property(e => e.CategoryName).HasMaxLength(100);
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.Description).HasMaxLength(1);
+            entity.Property(e => e.Description).HasMaxLength(200);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__COMMENTS__3214EC07A87A6D60");
+            entity.HasKey(e => e.Id).HasName("PK__COMMENTS__3214EC07EC00F884");
 
             entity.ToTable("COMMENTS");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CommentDate).HasColumnType("datetime");
-            entity.Property(e => e.CommentMsg).HasMaxLength(1);
 
             entity.HasOne(d => d.Blog).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.BlogId)
@@ -93,30 +92,31 @@ public partial class Project3Context : DbContext
 
         modelBuilder.Entity<Course>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Courses__3214EC07208C2447");
+            entity.HasKey(e => e.Id).HasName("PK__Courses__3214EC073F94300C");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.CoursesName).HasMaxLength(1);
+            entity.Property(e => e.CoursesName).HasMaxLength(250);
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<InformationStudent>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Informat__3214EC070501D268");
+            entity.HasKey(e => e.Id).HasName("PK__Informat__3214EC07EE07DB44");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.DateBirth).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(200);
             entity.Property(e => e.EndCard).HasColumnType("datetime");
-            entity.Property(e => e.FromCard).HasMaxLength(1);
-            entity.Property(e => e.FullName).HasMaxLength(1);
+            entity.Property(e => e.FromCard).HasMaxLength(250);
+            entity.Property(e => e.FullName).HasMaxLength(100);
             entity.Property(e => e.IdCardStudent).HasMaxLength(255);
             entity.Property(e => e.IdentityCard).HasMaxLength(255);
             entity.Property(e => e.StartCard).HasColumnType("datetime");
             entity.Property(e => e.Status).HasMaxLength(255);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
-            entity.Property(e => e.WasBorn).HasMaxLength(1);
+            entity.Property(e => e.WasBorn).HasMaxLength(255);
 
             entity.HasOne(d => d.IdNavigation).WithOne(p => p.InformationStudent)
                 .HasForeignKey<InformationStudent>(d => d.Id)
@@ -126,7 +126,7 @@ public partial class Project3Context : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Roles__3214EC073F559D59");
+            entity.HasKey(e => e.Id).HasName("PK__Roles__3214EC07897F0D52");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.NameRole).HasMaxLength(255);
@@ -134,14 +134,14 @@ public partial class Project3Context : DbContext
 
         modelBuilder.Entity<Subject>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Subjects__3214EC073B406A69");
+            entity.HasKey(e => e.Id).HasName("PK__Subjects__3214EC07C039428F");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Price)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("price");
-            entity.Property(e => e.SubjectName).HasMaxLength(1);
+            entity.Property(e => e.SubjectName).HasMaxLength(100);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
 
             entity.HasOne(d => d.Courses).WithMany(p => p.Subjects)
@@ -151,11 +151,11 @@ public partial class Project3Context : DbContext
 
         modelBuilder.Entity<TestFirst>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TestFirs__3214EC0737F13765");
+            entity.HasKey(e => e.Id).HasName("PK__TestFirs__3214EC0716BD79AC");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.NameTest).HasMaxLength(1);
+            entity.Property(e => e.NameTest).HasMaxLength(200);
 
             entity.HasOne(d => d.InfoStudent).WithMany(p => p.TestFirsts)
                 .HasForeignKey(d => d.InfoStudentId)
@@ -164,19 +164,17 @@ public partial class Project3Context : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07F925BBC1");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07A50A81B9");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
-            entity.Property(e => e.PasswordHash).HasColumnType("varbinary(max)");
-            entity.Property(e => e.PasswordSalt).HasColumnType("varbinary(max)");
-            entity.Property(e => e.UserName).HasMaxLength(1);
+            entity.Property(e => e.UserName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<UserRole>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC07E34239A0");
+            entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC0764838BB8");
 
             entity.ToTable("UserRole");
 

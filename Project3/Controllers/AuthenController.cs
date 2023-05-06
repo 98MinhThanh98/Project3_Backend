@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Project3.Entity.Dto;
 
 namespace Project3.Controllers
 {
@@ -7,5 +7,16 @@ namespace Project3.Controllers
     [ApiController]
     public class AuthenController : ControllerBase
     {
+        [HttpPost("/registerUser")]
+        public IActionResult RegisterUser([FromBody] RegisterUser registerUser)
+        {
+            return Ok();
+        }
+
+        [HttpPost("/loginUser")]
+        public IActionResult Login([FromBody] LoginUser login)
+        {
+            return Ok();
+        }
     }
 }
